@@ -337,15 +337,17 @@ h2::after {
     border-left: 4px solid var(--primary);
 }
 
-.pub-item h3 {
+.pub-item .pub-title {
     color: var(--dark);
-    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
 }
 
-.pub-meta {
+.pub-item .pub-venue {
     color: var(--primary);
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-bottom: 1rem;
 }
 
 .skills-container {
@@ -391,10 +393,34 @@ h2::after {
 .contact-intro {
     text-align: center;
     font-size: 1.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.contact-info-centered {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.contact-info-centered p {
+    margin-bottom: 0.6rem;
+}
+
+.contact-info-centered a {
+    color: #7dd3fc;
+    text-decoration: none;
+}
+
+.contact-info-centered a:hover {
+    text-decoration: underline;
+}
+
+.contact-info-centered i {
+    margin-right: 0.5rem;
+    width: 1.25rem;
 }
 
 .contact-methods {
@@ -424,22 +450,202 @@ h2::after {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.education-list {
-    max-width: 800px;
+/* Education Timeline - Left-Right Alternating */
+.edu-timeline-alt {
+    max-width: 1000px;
     margin: 0 auto;
+    position: relative;
 }
 
-.edu-item {
+.edu-timeline-alt::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+.edu-timeline-alt-item {
+    position: relative;
+    margin-bottom: 2rem;
+    width: 50%;
+}
+
+.edu-timeline-alt-item.left {
+    padding-right: 3rem;
+    text-align: right;
+}
+
+.edu-timeline-alt-item.right {
+    margin-left: 50%;
+    padding-left: 3rem;
+}
+
+.edu-timeline-alt-item::before {
+    content: '';
+    position: absolute;
+    top: 0.75rem;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.edu-timeline-alt-item.left::before { right: -8px; }
+.edu-timeline-alt-item.right::before { left: -8px; }
+
+.edu-timeline-alt-content {
     background: white;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
     border-radius: 12px;
-    margin-bottom: 1.5rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-.edu-item h3 {
+.edu-timeline-alt-item.left .edu-timeline-alt-content { text-align: right; }
+
+.edu-year {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.4rem;
+}
+
+.edu-timeline-alt-content h3 {
     color: var(--dark);
+    font-size: 1.3rem;
+    margin-bottom: 0.2rem;
+}
+
+.edu-timeline-alt-content .degree {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+}
+
+.edu-line {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 0.2rem;
+}
+
+/* Experience Cards */
+.experience-cards {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.exp-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    border-left: 4px solid var(--primary);
+}
+
+.exp-card h3 {
+    color: var(--dark);
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
+}
+
+.exp-card .meta {
+    color: #64748b;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.exp-card ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.exp-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Education Timeline (legacy left-side, kept for reference) */
+.edu-timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.edu-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+.edu-timeline-item {
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 2.5rem;
+}
+
+.edu-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.5rem;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.edu-timeline-year {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.edu-timeline-content {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.edu-timeline-content h3 {
+    color: var(--dark);
+    font-size: 1.35rem;
+    margin-bottom: 0.25rem;
+}
+
+.edu-timeline-content .degree {
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.edu-timeline-content .gpa {
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.edu-detail {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin-top: 0.25rem;
 }
 
 .degree {
@@ -464,7 +670,6 @@ h2::after {
     border-radius: 12px;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    border-left: 4px solid var(--primary);
 }
 
 .award-item h3 {
@@ -476,6 +681,31 @@ h2::after {
 .award-item p {
     color: #64748b;
     margin: 0;
+}
+
+.award-desc {
+    margin-top: 0.75rem !important;
+    margin-bottom: 0.75rem !important;
+    color: var(--text) !important;
+}
+
+.award-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.award-link:hover {
+    color: var(--secondary);
+}
+
+.award-link i {
+    font-size: 1.1rem;
 }
 
 .skill-category p {
@@ -504,16 +734,30 @@ footer {
         font-size: 1.2rem;
     }
 
-    .timeline::before {
-        left: 0;
+    .edu-timeline-item {
+        padding-left: 2.5rem;
     }
 
-    .timeline-dot {
-        left: 0;
+    .edu-timeline-item::before {
+        left: -7px;
+        width: 14px;
+        height: 14px;
     }
 
-    .timeline-content {
-        width: calc(100% - 40px);
-        margin-left: 40px !important;
+    .edu-timeline-alt::before { left: 0; transform: none; }
+
+    .edu-timeline-alt-item,
+    .edu-timeline-alt-item.left,
+    .edu-timeline-alt-item.right {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 2.5rem;
+        padding-right: 0;
+        text-align: left;
     }
+
+    .edu-timeline-alt-item.left::before,
+    .edu-timeline-alt-item.right::before { left: -8px; right: auto; }
+
+    .edu-timeline-alt-item.left .edu-timeline-alt-content { text-align: left; }
 }
